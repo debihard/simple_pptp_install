@@ -1,3 +1,24 @@
+#!/bin/sh
+#    Setup Simple PPTP VPN server for Ubuntu and Debian
+#    Copyright (C) 2013-2015 Viljo Viitanen <viljo.viitanen@iki.fi> and contributors
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    2013-11-06: initial version. Tested with Amazon EC2 Ubuntu 12.04 and 
+#                Digital Ocean Debian 7.0 and Ubuntu 12.04 images.
+#    2014-03-23: Added apt-get update.
+#    2014-09-18: Add help, allow custom username and password, thanks to dileep-p
+#    2015-01-25: Change external ip provider, thanks to theroyalstudent
+
+
 printhelp() {
 
 echo "
@@ -114,9 +135,9 @@ nobsdcomp
 debug
 dump
 idle 300
-#novj
-#novjccomp
-#nologfd
+novj
+novjccomp
+nologfd
 END
 
 apt-get -y install wget || {
