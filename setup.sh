@@ -70,8 +70,8 @@ cat >> /etc/rc.local << END
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
 iptables -t nat -A POSTROUTING -o $network_interface -j MASQUERADE
-iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
-iptables -I INPUT -s 192.168.2.0/24 -i ppp0 -j ACCEPT
+iptables --table nat --append POSTROUTING --out-interface ppp+ -j MASQUERADE
+iptables -I INPUT -s 192.168.2.0/24 -i ppp+ -j ACCEPT
 iptables --append FORWARD --in-interface $network_interface -j ACCEPT
 
 #ssh channel
